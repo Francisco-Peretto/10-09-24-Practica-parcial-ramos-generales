@@ -1,0 +1,12 @@
+10000;Libreria;Cuaderno;100;10
+10001;Libreria;Lapiz negro;30;11
+10002;Electronica;Auricular;200;15
+10003;Electronica;Parlante;500;20
+10004;Kiosco;Caramelos;5;5
+10005;Kiosco;Alfajor;100;50
+10006;Ferreteria;Destornillador;200;50
+10007;Ferreteria;Martillo;220;40
+10008;Electronica;Cargador;100;20
+10009;Ferreteria;Serrucho;200;45
+10010;Ferreteria;Llave de tubo;300;25
+10011;Kiosco;Cigarrillos;300;10
