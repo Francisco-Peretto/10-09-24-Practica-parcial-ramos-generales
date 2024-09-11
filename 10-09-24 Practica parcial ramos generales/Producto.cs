@@ -61,7 +61,7 @@ namespace _10_09_24_Practica_parcial_ramos_generales
 
         public void MostrarDatosProducto()
         {
-            Console.WriteLine($"Codigo: {this.Codigo} | Rubro: {this.Rubro} | Descripción: {this.Descripcion} | Costo: ${this.Costo} | Ganancia: ${this.Ganancia} | Precio: ${this.Precio} ");
+            Console.WriteLine($"Codigo: {this.Codigo} | Rubro: {this.Rubro} | Descripción: {this.Descripcion} | Costo: ${this.Costo} | Ganancia: ${this.Ganancia}% | Precio: ${this.Precio} ");
         }
     }
 }

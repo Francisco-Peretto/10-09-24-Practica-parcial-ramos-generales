@@ -10,16 +10,8 @@ namespace _10_09_24_Practica_parcial_ramos_generales
     internal class Negocio
     {
         private List<Producto> listaProductos;
-        private float _cantidadProductos;
         private float _promedioPrecios;
-        private float productosLibreria;
-        private float productosFerreteria;
-        private float productosElectronica;
-        private float productosKiosco;
-        private float acLibreria;
-        private float acFerreteria;
-        private float acElectronica;
-        private float acKiosco;
+        // private float _cantidadProductos;
 
         public Negocio()
         {
@@ -33,13 +25,15 @@ namespace _10_09_24_Practica_parcial_ramos_generales
 
         public float PromedioPrecios
         {
-            get {
+            get 
+            {
+                float total = 0;
                 foreach (Producto producto in this.listaProductos)
                     {
-                    this._promedioPrecios += producto.Precio;
+                    total += producto.Precio;
                     }
-                return this._promedioPrecios / this.CantidadProductos;
-                }
+                return total / this.CantidadProductos;
+            }
         }
 
         public void llenarListaDeProductos()
@@ -62,42 +56,45 @@ namespace _10_09_24_Practica_parcial_ramos_generales
 
         public void GenerarReporteProductos()
         {
-            Console.WriteLine("\nInventario de productos:\n");
+            float productosLibreria = 0;
+            float productosFerreteria = 0;
+            float productosElectronica = 0;
+            float productosKiosco = 0;
+            float acLibreria = 0;
+            float acFerreteria = 0;
+            float acElectronica = 0;
+            float acKiosco = 0;
+        Console.WriteLine("\nInventario de productos:\n");
 
             foreach (Producto producto in this.listaProductos)
             {
                 producto.MostrarDatosProducto();
-                if (producto.Rubro == "Libreria")
+                switch (producto.Rubro)
                 {
-                    productosLibreria++;
-                    acLibreria += producto.Precio;
-                }
-                else if (producto.Rubro == "Ferreteria")
-                {
-                    productosFerreteria++;
-                    acFerreteria += producto.Precio;
-                }
-                else if (producto.Rubro == "Electronica")
-                {
-                    productosElectronica++;
-                    acElectronica += producto.Precio;
-                }
-                else
-                {
-                    productosKiosco++;
-                    acKiosco += producto.Precio;
+                    case "Libreria":
+                        productosLibreria++;
+                        acLibreria += producto.Precio;
+                        break;
+                    case "Ferreteria":
+                        productosFerreteria++;
+                        acFerreteria += producto.Precio;
+                        break;
+                    case "Electronica":
+                        productosElectronica++;
+                        acElectronica += producto.Precio;
+                        break;
+                    case "Kiosco":
+                        productosKiosco++;
+                        acKiosco += producto.Precio;
+                        break;
                 }
             }
-            Console.WriteLine("\nReporte de artículos:");
-            Console.WriteLine($"Cantidad de artículos de libreria: {acLibreria}. Promedio de precio unitario: ${productosLibreria / acLibreria}");
-            Console.WriteLine($"Cantidad de artículos de ferretería: {acFerreteria}. Promedio de precio unitario: ${productosFerreteria / acFerreteria}");
-            Console.WriteLine($"Cantidad de artículos de electrónica: {acElectronica}. Promedio de precio unitario: ${productosElectronica / acElectronica}");
-            Console.WriteLine($"Cantidad de artículos de kiosco: {acKiosco}. Promedio de precio unitario: ${productosKiosco / acKiosco}");
-            Console.WriteLine("Precio promedio de todos los productos: " + (acLibreria + acFerreteria + acElectronica + acKiosco) /CantidadProductos);
-
+            Console.WriteLine("\nReporte de productos:");
+            Console.WriteLine($"Cantidad de productos de libreria: {productosLibreria}. Promedio del precio de la categoría: ${acLibreria /productosLibreria:F2}");
+            Console.WriteLine($"Cantidad de productos de ferretería: {productosFerreteria}. Promedio del precio de la categoría: ${acFerreteria / productosFerreteria:F2}");
+            Console.WriteLine($"Cantidad de productos de electrónica: {productosElectronica}. Promedio del precio de la categoría: ${acElectronica / productosElectronica:F2}");
+            Console.WriteLine($"Cantidad de productos de kiosco: {productosKiosco}. Promedio del precio de la categoría: ${acKiosco / productosKiosco:F2}");
+            Console.WriteLine("Precio promedio de todos los productos: $" + PromedioPrecios.ToString("F2"));
         }
     }
-
-    
-
 }
